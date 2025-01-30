@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promak Digital Printers</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Promak Digital Printers</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="cta">Get a Quote</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Quality Printing Services</h1>
+            <p>Your one-stop shop for all your digital printing needs.</p>
+            <a href="#services" class="btn">Explore Services</a>
+        </div>
+        <div class="hero-image">
+            <img src="hero-image.jpg" alt="Printing Services">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card" data-modal="modal1">
+                <h3>Posters & Banners</h3>
+                <p>High-quality, vibrant prints for any occasion.</p>
+            </div>
+            <div class="card" data-modal="modal2">
+                <h3>Business Cards</h3>
+                <p>Professional and personalized business cards.</p>
+            </div>
+            <div class="card" data-modal="modal3">
+                <h3>Custom T-Shirts</h3>
+                <p>Print your designs on premium quality fabrics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <h2>Our Portfolio</h2>
+        <div class="gallery">
+            <img src="portfolio1.jpg" alt="Portfolio Item 1">
+            <img src="portfolio2.jpg" alt="Portfolio Item 2">
+            <img src="portfolio3.jpg" alt="Portfolio Item 3">
+        </div>
+    </section>
+
+    <!-- Quote Modal -->
+    <div class="modal" id="quoteModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Get a Quote</h3>
+            <form action="https://formsubmit.co/d9812705@gmail.com" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="details">Project Details:</label>
+                <textarea id="details" name="details" rows="4" required></textarea>
+                
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you">
+                <input type="text" name="_honey" style="display:none">
+                
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Promak Digital Printers. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const modals = document.querySelectorAll(".modal");
+            const cards = document.querySelectorAll(".card");
+            const closeButtons = document.querySelectorAll(".close");
+            const quoteModal = document.getElementById("quoteModal");
+            const quoteButton = document.querySelector(".cta");
+
+            cards.forEach((card) => {
+                card.addEventListener("click", () => {
+                    const modalId = card.getAttribute("data-modal");
+                    document.getElementById(modalId).style.display = "flex";
+                });
+            });
+
+            closeButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    button.parentElement.parentElement.style.display = "none";
+                });
+            });
+
+            window.addEventListener("click", (event) => {
+                modals.forEach((modal) => {
+                    if (event.target === modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            });
+
+            quoteButton.addEventListener("click", () => {
+                quoteModal.style.display = "flex";
+            });
+        });
+    </script>
+</body>
+</html>
